@@ -4,6 +4,8 @@ body{
     font-family: Roboto;
     overflow-y: scroll;
 overflow-x: hidden;
+background: #232323;
+scroll-behavior: smooth;
 }
 #out{
     height: 100vh;
@@ -21,17 +23,20 @@ nav{
     }
 }
 #maincon{
-    background-image: url("back.jpg");
+    background-image: url("img.jpg");
     background-size: cover;
     background-position: center;
     height: 100%;
 }
-
+.navbar-nav{
+   display: block;
+margin: 0 auto;
+}
 #logo{
-    width: 100px;    
+    width: 75px;    
     display: inline;
-    margin: 10px;
-    margin-left: 30px;
+    margin-left: 100%;;
+    padding: 0;
    
 }
 h1,h3,h5{
@@ -45,7 +50,7 @@ h3{
 h1{
     font-size: 40px;
 }
-li{
+.navli{
      display: inline;
      padding: 20px;
      color: white;
@@ -54,6 +59,8 @@ li{
 #lis{
     display: inline-block;
     float: right;
+    right: 0;
+    position: absolute;
     margin-right: 30px;
     padding-top: 20px;
 }
@@ -69,8 +76,14 @@ button{
 }
 button:hover{
     background: linear-gradient(90deg, #00b24f 0%, #00e365 100%);
+    animation: shadow .5s forwards .1s ease-in;
+    cursor: pointer;
 }
-
+@keyframes shadow{
+    100%{
+        box-shadow: 0 0 8px 0px;
+    }
+}
 #topcon{
     display: block;
     margin: 0 auto;
@@ -88,9 +101,6 @@ button:hover{
     }
 }
 
-#topcon:hover{
-    
-}
 #cta{
     margin-top: 30px;
     
@@ -125,11 +135,11 @@ button:hover{
 
 .galimg:hover{
        
-        -webkit-animation: flip-scale-up-diag-2 0.5s linear both;
+      animation: flip-scale-up-diag-2 0.5s linear both;
         
 	    
 }
-@-webkit-keyframes flip-scale-up-diag-2 {
+@keyframes flip-scale-up-diag-2 {
   0% {
     -webkit-transform: scale(1) rotate3d(-1, 1, 0, 0deg);
             transform: scale(1) rotate3d(-1, 1, 0, 0deg);
@@ -259,12 +269,86 @@ i{
     height: 400px;
     background: linear-gradient(45deg, #00e365 0%, #00b24f 100%);
     align-content: center;
-    display: inline-block;
-    opacity: .7;
+    /* display: inline-block; */
+    color: #fff;
     margin: 10px 4%;
+    animation: rotate-vert-center-rev 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+    box-shadow: 0 0 10px 0px black;
+}
+.pricecard:hover{
+    animation: rotate-vert-center 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
+@keyframes rotate-vert-center {
+    0% {
+      -webkit-transform: rotateY(0);
+              transform: rotateY(0);
+    }
+    100% {
+              transform: rotateY(180deg);
+              background: url("card.jpg");
+              background-position-x: 50%;
+    }
+  }
+  @keyframes rotate-vert-center-rev {
+    0% {
+              transform: rotateY(180deg);
+    }
+    100% {
+              transform: rotateY(0deg);
+              /* background: url("img.jpg"); */
+    }
+  }
+  .pricecard:hover .packname{
+      animation: fadeoutbronze .5s forwards ease;
+  }
+  @keyframes fadeoutbronze{
+      100%{
+          opacity: 0;
+      }
+  }
+.benicon{
+    text-align: left;
+    font-size: 20px;
+    margin-left: 10%;
+    color: #000;
+  
+}
+
+h4{
+    font-size: 25px;
+    margin: 5px 0;
+    font-weight: 400;
+}
+.pricecon{
+    opacity: 0;
+    width: 100%;
+}
+.packname{
+    margin-top: 50px;
+}
+.pricecard:hover .pricecon{
+    animation: fadeinn .5s forwards 0s ease-in;
+}
+
+@keyframes fadeinn{
+
+    100%{
+        opacity: 1;
+        transform: rotateY(180deg);
+    }
 }
 
 
-.pricecard:hover{
-    opacity: 1;
+#pricew{
+    margin: 0;
+    padding: 50px;
+    text-align: center;
+    color: black;
+    font-weight: 400;
+    
+    font-size: 40px;
+}
+
+#price{
+    background: linear-gradient(90deg, #eeeeee 0%, #bbbbbb 100%);
 }
